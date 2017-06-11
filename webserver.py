@@ -6,7 +6,7 @@
 #          send the contents of the webpage once, then shut down the server.
 #          If you want to see the page again you'll need to rerun the program
 #          and hit refresh on the browser window after the program is running.
-from socket import *
+from socket import socket, AF_INET, SOCK_STREAM
 
 # CONSTANTS
 # Address 0.0.0.0 or an empty string is a multicast address.
