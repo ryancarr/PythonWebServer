@@ -34,6 +34,8 @@ PORT = 80
 sock = socket(family=AF_INET, type=SOCK_STREAM)
 
 # Bind the socket to an IP ADDRESS / PORT pair.
+# The address and port are stored in a tuple
+# that is passed to the bind method
 sock.bind( (ADDRESS, PORT) )
 
 # Listen for an incoming connection
