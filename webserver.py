@@ -65,7 +65,7 @@ try:
 
     # This is where the actual web page code goes. We can write it all inline
     # using ''' or """ to enclose the multiline string.
-    # Another alternate is read the data in from the file.
+    # Another alternate is read the data in from a html file.
         http_response = '''\
 HTTP/1.1 200 OK
 
