@@ -34,8 +34,6 @@ PORT = 80
 sock = socket(family=AF_INET, type=SOCK_STREAM)
 
 # Bind the socket to an IP ADDRESS / PORT pair.
-# The address and port are stored in a tuple
-# that is passed to the bind method
 sock.bind( (ADDRESS, PORT) )
 
 # Listen for an incoming connection
@@ -53,6 +51,8 @@ try:
     # client_address is a string representation of the ip address the client
     # is connecting from
         client_connection, client_address = sock.accept()
+        print('Accepted connection from IP: {0} on Port: {1}'.format(
+            client_address[0], client_address[1]))
 
     # Web browsers first send out a GET request, so we need to receive
     # that request or our webserver won't work properly
@@ -65,7 +65,7 @@ try:
 
     # This is where the actual web page code goes. We can write it all inline
     # using ''' or """ to enclose the multiline string.
-    # Another alternate is read the data in from a html file.
+    # Another alternate is read the data in from the file.
         http_response = '''\
 HTTP/1.1 200 OK
 
@@ -89,3 +89,4 @@ HTTP/1.1 200 OK
 
 except KeyboardInterrupt:
     print("Closing server {0}/{1}".format(ADDRESS, PORT))
+    sock.close()
